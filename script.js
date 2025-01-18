@@ -27,12 +27,6 @@ $(document).ready(function() {
     $("#ram-total, #ram-reserved, #ram-buffer, #process-size").on("keydown keyup change", function() {
         sum();
     });
-  generateConfigCopy();
-
-  $("buttonCopy").click(function(){
-    copyClipboard
-  });
-
 });
 
 function sum() {
@@ -68,19 +62,3 @@ function sum() {
               document.getElementById('max-spare').value = maxspare;
             }
           }
-
-function generateConfigCopy (){
-document.getElementById('copyPasteArea').value = 'pm.max_children = ' + document.getElementById('max-children').value +'\n'
-              + 'pm.start_servers = ' + document.getElementById('start-servers').value +'\n'
-              + 'pm.min_spare_servers = ' + document.getElementById('min-spare').value +'\n'
-              + 'pm.max_spare_servers = ' + document.getElementById('max-spare').value;
-
-}
-
-function copyClipboard (){
-  var text = document.getElementById('copyPasteArea');
-  text.select();
-  document.execCommand('copy');
-  alert('copied to clipboard successfully.');
-}
-
